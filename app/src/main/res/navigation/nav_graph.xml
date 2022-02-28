@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.charles.zuo.lodge.CameraXFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_placeholder"
+            app:destination="@id/photo_album" />
+        <action
+            android:id="@+id/action_homeFragment_to_placeholder2"
+            app:destination="@id/video_collection" />
+        <action
+            android:id="@+id/action_homeFragment_to_placeholder3"
+            app:destination="@id/placeholder3" />
+    </fragment>
+    <fragment android:id="@+id/placeholder3" />
+
+    <navigation android:id="@+id/photo_album"
+        app:startDestination="@id/photo_list">
+        <fragment android:id="@+id/photo_list"
+            android:name="com.charles.zuo.lodge.PhotoAlbumFragment"
+            android:label="@string/photo_album"
+            tools:layout="@layout/photo_album_fragment">
+            <action
+                android:id="@+id/action_placeholder4_to_placeholder5"
+                app:destination="@id/photo_detail" />
+        </fragment>
+        <fragment android:id="@+id/photo_detail" />
+    </navigation>
+
+    <navigation android:id="@+id/video_collection"
+        app:startDestination="@id/video_list">
+        <fragment android:id="@+id/video_list" >
+            <action
+                android:id="@+id/action_placeholder5_to_placeholder6"
+                app:destination="@id/video_detail" />
+        </fragment>
+        <fragment android:id="@+id/video_detail" />
+    </navigation>
+</navigation>
